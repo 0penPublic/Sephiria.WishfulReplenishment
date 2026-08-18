@@ -1,12 +1,16 @@
 # Wishful Replenishment
 
-A BepInEx + Harmony mod for [Sephiria](https://store.steampowered.com/app/2436940/).
+A BepInEx + Harmony client-side mod for [Sephiria](https://store.steampowered.com/app/2436940/).
 
-Wishful Replenishment is a targeted shop-refresh utility designed to help players quickly restock or refresh specific items in the shop. Instead of manually repeating the refresh loop, the mod lets you pick a desired item and automates the replenishment flow until it appears.
+Wishful Replenishment is a targeted shop-refresh utility designed to help players efficiently acquire a specific item by simulating the same manual replenishment flow used in the shop UI. The mod does not modify server-authoritative fields or privileged game state; it only triggers the same client-side refresh actions a player would normally perform by hand.
 
 ## Why this mod
 
-In a shop system where item refresh is repetitive, this mod removes the friction of manually retrying the same action over and over. It is focused on one thing: efficiently obtaining a specific item by repeatedly triggering replenishment and validating the result.
+In a shop system where item refresh is repetitive, this mod removes the friction of manually retrying the same action over and over. It is focused on one thing: efficiently targeting a specific item by repeatedly triggering the replenishment flow and validating the result.
+
+## Notes
+
+This is a client-side mod that simulates the same manual replenishment flow available to the player. It does not overwrite server-owned or protected fields, so it is suitable for multiplayer scenarios where the player is not the host or room owner.
 
 ## Features
 
@@ -15,6 +19,7 @@ In a shop system where item refresh is repetitive, this mod removes the friction
 - Automatic repeated replenishment attempts until the selected item appears
 - Success/failure feedback through the in-game system message UI
 - Harmony-based patching for shop and UI integration
+- Safe for non-host multiplayer use because it does not alter protected server-side fields
 
 ## How it works
 
@@ -44,4 +49,4 @@ In a shop system where item refresh is repetitive, this mod removes the friction
 
 ## Notes
 
-This project is intended for players who want a faster, more controlled replenishment workflow when targeting a specific item in the shop. It is designed to reduce repetitive manual refresh actions while preserving the game’s normal flow.
+This mod is intended for players who want a faster, more controlled replenishment workflow when targeting a specific item in the shop. It is designed to reduce repetitive manual refresh actions without modifying server-authoritative state, which makes it suitable for use as a client-side utility in multiplayer sessions.
