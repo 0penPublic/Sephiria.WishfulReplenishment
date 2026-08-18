@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <RootNamespace>WishfulReplenishment</RootNamespace>
+    <AssemblyName>WishfulReplenishment</AssemblyName>
+    
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings> 
+  </PropertyGroup>  
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(GameFolder)\Sephiria_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    
+    <Reference Include="UnityEngine">
+      <HintPath>$(GameFolder)\Sephiria_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(GameFolder)\Sephiria_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(GameFolder)\Sephiria_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>$(GameFolder)\Sephiria_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Mirror">
+      <HintPath>$(GameFolder)\Sephiria_Data\Managed\Mirror.dll</HintPath>
+    </Reference>
+
+    <Reference Include="BepInEx">
+      <HintPath>$(GameFolder)\BepInEx\core\BepInEx.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    
+    <Reference Include="0Harmony">
+      <HintPath>$(GameFolder)\BepInEx\core\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="CopyToPluginsAndLaunch" AfterTargets="Build" Condition="Exists('$(GameFolder)')">
+    <Copy SourceFiles="$(TargetDir)$(AssemblyName).dll" DestinationFolder="$(GameFolder)\BepInEx\plugins\" />
+    <Exec Command="cmd /c start steam://rungameid/2436940" />
+  </Target>
+
+</Project>
