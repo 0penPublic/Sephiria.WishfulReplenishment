@@ -1,37 +1,47 @@
 # Wishful Replenishment
 
-This project is a Unity mod developed with BepInEx and Harmony for the Sephiria game. It implements directed automatic replenishment in the shop: the player can select a target item from the journal or item list, and the mod will repeatedly trigger shop replenishment until that specific item appears.
+A BepInEx + Harmony mod for [Sephiria](https://store.steampowered.com/app/2436940/).
 
-## Overview
+Wishful Replenishment is a targeted shop-refresh utility designed to help players quickly restock or refresh specific items in the shop. Instead of manually repeating the refresh loop, the mod lets you pick a desired item and automates the replenishment flow until it appears.
 
-The mod is designed for a shop-based gameplay loop where the player wants to refresh specific items efficiently without manually repeating the same shop refresh actions. It focuses on targeted item acquisition by automating the replenishment process.
+## Why this mod
+
+In a shop system where item refresh is repetitive, this mod removes the friction of manually retrying the same action over and over. It is focused on one thing: efficiently obtaining a specific item by repeatedly triggering replenishment and validating the result.
 
 ## Features
 
-- Adds a middle-click shortcut on the shop replenishment button.
-- Opens the journal to select the desired target item.
-- Automatically triggers replenishment repeatedly until the chosen item is found.
-- Displays success or failure feedback through the in-game system message UI.
-- Uses Harmony patching to hook into the relevant shop and UI lifecycle methods.
+- Middle-click shortcut on the shop replenishment button
+- Journal-based item selection for target acquisition
+- Automatic repeated replenishment attempts until the selected item appears
+- Success/failure feedback through the in-game system message UI
+- Harmony-based patching for shop and UI integration
 
-## Workflow
+## How it works
 
 1. Open the shop.
-2. Use the middle-click shortcut on the replenishment button.
-3. Select the target item from the journal.
-4. The mod automatically performs repeated replenishment attempts.
-5. When the target item is found, it reports the result through the system message box.
+2. Use the middle-click action on the replenishment button.
+3. Choose the target item from the journal.
+4. The mod repeatedly refreshes the shop until the item is acquired.
+5. A result message is shown once the process completes.
 
-## Technical notes
+## Project structure
 
-This is a BepInEx plugin built on Harmony for runtime patching. The implementation separates responsibilities into:
+- `WishfulReplenishment.cs` — entry point and Harmony bootstrap
+- `Config/PluginConfig.cs` — configuration binding
+- `Services/ReplenishmentService.cs` — replenishment logic
+- `Patches/ShopPanelPatches.cs` — Harmony patch hooks
+- `UI/MiddleClickListener.cs` — middle-click interaction handling
 
-- `WishfulReplenishment.cs` — plugin bootstrap and Harmony startup.
-- `Config/PluginConfig.cs` — configuration binding.
-- `Services/ReplenishmentService.cs` — replenishment execution logic.
-- `Patches/ShopPanelPatches.cs` — Harmony patch hooks for shop and UI behavior.
-- `UI/MiddleClickListener.cs` — middle-click interaction listener.
+## Requirements
 
-## Plugin identity
+- BepInEx
+- Harmony
+- Unity-based game environment compatible with the project
 
-Wishful Replenishment is a targeted shop replenishment utility mod meant to streamline item refresh and acquisition in a controlled, repeatable manner.
+## Supported Game
+
+- [Sephiria on Steam](https://store.steampowered.com/app/2436940/)
+
+## Notes
+
+This project is intended for players who want a faster, more controlled replenishment workflow when targeting a specific item in the shop. It is designed to reduce repetitive manual refresh actions while preserving the game’s normal flow.
